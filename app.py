@@ -259,5 +259,10 @@ if __name__ == "__main__":
     print(f"Model status: {'✓ Loaded' if model else '✗ Not found'}")
     print(f"Encodings status: {'✓ Loaded' if encodings_cache else '✗ Not found'}")
     print("=" * 50)
-    print("Starting Flask app on http://localhost:5000\n")
-    app.run(debug=True)
+    # print("Starting Flask app on http://localhost:5000\n")
+    # app.run(debug=True)
+
+    port = int(os.environ.get("PORT", 10000))
+    print(f"Starting Flask app on port {port}")
+
+    app.run(host="0.0.0.0", port=port)
